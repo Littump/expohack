@@ -12,3 +12,30 @@ class UserСreateCustomSerializer(UserCreateSerializer):
     class Meta:
         model = models.User
         exclude = ["password"]
+
+
+class ClientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Client
+        fields = "__all__"
+
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Favorite
+        exclude = ['user']
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        validated_data['user'] = user
+        return models.Favorite.objects.create(**validated_data)
+
+
+class ThingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Thing
+        fields = "__all__"
+
+
+class ScriptSerializer(serializers.Serializer):
+    text = serializers.CharField()
