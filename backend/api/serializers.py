@@ -15,9 +15,15 @@ class UserСreateCustomSerializer(UserCreateSerializer):
 
 
 class ClientSerializer(serializers.ModelSerializer):
+    is_favorite = serializers.SerializerMethodField()
+
     class Meta:
         model = models.Client
         fields = "__all__"
+
+    def get_is_favorite(self, obj):
+        user = self.context['request'].user
+        return models.Favorite.objects.filter(user=user, client=obj).exists()
 
 
 class FavoriteSerializer(serializers.ModelSerializer):

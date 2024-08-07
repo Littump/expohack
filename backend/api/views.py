@@ -30,6 +30,9 @@ class ClientViewSet(ModelViewSet):
     def favorites(self, request):
         user = self.request.user
         queryset = models.Favorite.objects.filter(user=user)
+        ids_filter = request.query_params.get('id')
+        if ids_filter:
+            queryset = queryset.filter(client__id__contains=ids_filter)
         serializer = serializers.FavoriteSerializer(queryset, many=True)
         return Response(serializer.data)
 
