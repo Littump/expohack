@@ -36,6 +36,13 @@ class ClientViewSet(ModelViewSet):
         serializer = serializers.FavoriteSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    @action(methods=['get'], detail=True)
+    def history(self, request, pk):
+        client = self.get_object()
+        queryset = models.HistoryBuy.objects.filter(client=client)
+        serializer = serializers.HistoryBuySerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class ThingViewSet(ModelViewSet):
     serializer_class = serializers.ThingSerializer
@@ -58,3 +65,8 @@ class ThingViewSet(ModelViewSet):
         ...
         serializer = serializers.ThingSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class HistoryBuyViewSet(ModelViewSet):
+    serializer_class = serializers.HistoryBuySerializer
+    queryset = models.HistoryBuy.objects.all()

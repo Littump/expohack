@@ -19,3 +19,9 @@ class Thing(models.Model):
     id = models.CharField(max_length=256, primary_key=True)
     company = models.CharField(max_length=256)
     name = models.CharField(max_length=1024)
+
+
+class HistoryBuy(models.Model):
+    thing = models.ForeignKey(Thing, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)

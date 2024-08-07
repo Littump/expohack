@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from api.views import ClientViewSet, ThingViewSet
+from api.views import ClientViewSet, ThingViewSet, HistoryBuyViewSet
 
 
 app_name = 'api'
@@ -9,6 +9,7 @@ app_name = 'api'
 v1_router = DefaultRouter()
 v1_router.register('clients', ClientViewSet, basename='clients')
 v1_router.register('things', ThingViewSet, basename='things')
+v1_router.register('history', HistoryBuyViewSet, basename='history')
 
 
 urlpatterns = [

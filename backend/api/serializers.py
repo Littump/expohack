@@ -45,3 +45,9 @@ class ThingSerializer(serializers.ModelSerializer):
 
 class ScriptSerializer(serializers.Serializer):
     text = serializers.CharField()
+
+
+class HistoryBuySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.HistoryBuy
+        fields = "__all__"
