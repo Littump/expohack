@@ -25,3 +25,6 @@ class HistoryBuy(models.Model):
     thing = models.ForeignKey(Thing, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-date"]

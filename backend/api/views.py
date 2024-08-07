@@ -42,7 +42,7 @@ class ClientViewSet(ModelViewSet):
         queryset = models.HistoryBuy.objects.filter(client=client)
         things = queryset.values_list('thing', flat=True)
         queryset = models.Thing.objects.filter(id__in=things)
-        serializer = serializers.HistoryBuySerializer(queryset, many=True)
+        serializer = serializers.ThingSerializer(queryset, many=True)
         return Response(serializer.data)
 
 
