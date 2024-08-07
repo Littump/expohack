@@ -1,5 +1,6 @@
-import six
 import threading
+
+import six
 
 
 class WorkerMeta(type):

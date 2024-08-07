@@ -1,6 +1,6 @@
-from utils.worker import Worker
 from database import Thing, get_session
 from utils.singltone import Singletone
+from utils.worker import Worker
 
 
 class Storage(metaclass=Singletone):

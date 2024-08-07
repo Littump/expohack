@@ -1,5 +1,5 @@
-from utils.worker import Worker
 from database import Thing, get_session
+from utils.worker import Worker
 from workers.storage import Storage
 
 
