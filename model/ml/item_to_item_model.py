@@ -1,6 +1,7 @@
-from typing import List, Dict
-from generator import GigaChatAPI
-from prompt_templates import prompt_item_to_item_filtration
+from typing import Dict, List
+
+from clients.gigachat import GigachatAPI
+from ml.prompt_templates import prompt_item_to_item_filtration
 
 
 class PredictionModel:
@@ -21,7 +22,7 @@ class PredictionModel:
             items (List[Dict[str, Any]]): A list of items to be used for prediction.
         """
         self.prompt_template = prompt_item_to_item_filtration
-        self.llm_api = GigaChatAPI()
+        self.llm_api = GigachatAPI()
         self.items = items
 
     def _formulate_description(self, item: Dict[str, any]) -> str:

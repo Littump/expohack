@@ -7,7 +7,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 from api import serializers, models, filters
-from utils.logger import get_logger
+from ml.script import GenerateScript
 
 
 class ClientViewSet(ModelViewSet):
@@ -45,26 +45,41 @@ class ClientViewSet(ModelViewSet):
         serializer = serializers.ThingSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    @action(methods=['get'], detail=True)
+    def recommendations(self, request, pk):
+        client = self.get_object()
+        recommendations = client.client_recommendation.all()
+        things = recommendations.values_list('thing', flat=True)
+        queryset = models.Thing.objects.filter(id__in=things)
+        serializer = serializers.ThingSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class ThingViewSet(ModelViewSet):
     serializer_class = serializers.ThingSerializer
     queryset = models.Thing.objects.all()
+    script_reducer = GenerateScript()
     filter_backends = (DjangoFilterBackend,)
     filterset_class = filters.ThingFilter
 
     @swagger_auto_schema(responses={status.HTTP_200_OK: serializers.ScriptSerializer()})
     @action(methods=['get'], detail=True)
     def script(self, request, pk):
-        # thing = self.get_object()
-        text = 'test'
+        this_thing: models.Thing = self.get_object()
+        main_product = {this_thing.name: this_thing.description}
+        additional_products = {thing.name: thing.description for thing in models.Thing.objects.all()}
+        additional_products.pop(this_thing.name, None)
+        text = self.script_reducer.get_script(main_product, additional_products)
         serializer = serializers.ScriptSerializer(data={'text': text})
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(methods=['get'], detail=True)
-    def recommend(self, request):
-        queryset = models.Thing.objects.all()
-        ...
+    def recommend(self, request, pk):
+        this_thing: models.Thing = self.get_object()
+        recommendations = this_thing.thing_recommendation.all()
+        things = recommendations.values_list('thing_recommendation', flat=True)
+        queryset = models.Thing.objects.filter(id__in=things)
         serializer = serializers.ThingSerializer(queryset, many=True)
         return Response(serializer.data)
 

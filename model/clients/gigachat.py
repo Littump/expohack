@@ -2,7 +2,7 @@ import requests
 import base64
 import uuid
 import json
-from project import config
+import config
 
 
 class GigachatAPI:

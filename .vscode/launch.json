@@ -14,5 +14,15 @@
             "program": "${workspaceFolder}/backend/manage.py",
             "cwd": "${workspaceFolder}/backend"
         },
+        {
+            "name": "Start Worker",
+            "type": "debugpy",
+            "request": "launch",
+            "envFile": "${workspaceFolder}/model/.env",
+            "justMyCode": false,
+            "python": "${workspaceFolder}/model/venv/bin/python",
+            "program": "${workspaceFolder}/model/main.py",
+            "cwd": "${workspaceFolder}/model"
+        }
     ]
 }

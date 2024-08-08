@@ -8,6 +8,7 @@ class User(AbstractUser):
 
 class Client(models.Model):
     id = models.CharField(max_length=100, primary_key=True)
+    last_update = models.DateTimeField(auto_now_add=True)
 
 
 class Favorite(models.Model):
@@ -19,6 +20,8 @@ class Thing(models.Model):
     id = models.CharField(max_length=256, primary_key=True)
     company = models.CharField(max_length=256)
     name = models.CharField(max_length=1024)
+    description = models.CharField(max_length=1024, blank=True)
+    last_update = models.DateTimeField(auto_now_add=True)
 
 
 class HistoryBuy(models.Model):
@@ -28,3 +31,13 @@ class HistoryBuy(models.Model):
 
     class Meta:
         ordering = ["-date"]
+
+
+class Recommendation(models.Model):
+    thing = models.ForeignKey(Thing, on_delete=models.CASCADE, related_name="thing_recommendation")
+    thing_recommendation = models.ForeignKey(Thing, on_delete=models.CASCADE)
+
+
+class ClientRecommendation(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name="client_recommendation")
+    thing = models.ForeignKey(Thing, on_delete=models.CASCADE)
