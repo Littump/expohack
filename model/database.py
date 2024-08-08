@@ -4,7 +4,7 @@ from sqlalchemy import TIMESTAMP
 from sqlalchemy import Text, create_engine, Integer
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
-engine = create_engine('postgresql+psycopg2://django_user:mysecretpassword@localhost:5432/django')
+engine = create_engine('postgresql+psycopg2://django_user:mysecretpassword@db:5432/django')
 
 
 def get_session():
