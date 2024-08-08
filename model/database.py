@@ -1,10 +1,11 @@
-from typing import Optional
 from datetime import datetime
-from sqlalchemy import TIMESTAMP
-from sqlalchemy import Text, create_engine, Integer
+from typing import Optional
+
+from config import URL_DB
+from sqlalchemy import TIMESTAMP, Integer, Text, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
-engine = create_engine('postgresql+psycopg2://django_user:mysecretpassword@db:5432/django')
+engine = create_engine(URL_DB)
 
 
 def get_session():

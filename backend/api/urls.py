@@ -1,7 +1,6 @@
+from api.views import ClientViewSet, HistoryBuyViewSet, ThingViewSet
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-
-from api.views import ClientViewSet, ThingViewSet, HistoryBuyViewSet
 
 
 app_name = 'api'

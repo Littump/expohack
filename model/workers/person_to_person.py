@@ -1,9 +1,10 @@
+from datetime import datetime
+
 import pandas
 from database import Client, ClientRecommendation, get_session
-from utils.worker import Worker
-from storages import Storage
 from ml.person_to_person_model import CollaborativeFiltering
-from datetime import datetime
+from storages import Storage
+from utils.worker import Worker
 
 
 class PersonToPersonWorker(Worker):

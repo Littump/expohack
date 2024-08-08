@@ -1,9 +1,10 @@
-from utils.const import MINUTE
 import time
+
+from storages.storage_history import StorageHistoryWorker
+from storages.storage_things import StorageThingWorker
+from utils.const import MINUTE
 from workers.item_to_item import ItemToItemWorker
 from workers.person_to_person import PersonToPersonWorker
-from storages.storage_things import StorageThingWorker
-from storages.storage_history import StorageHistoryWorker
 
 
 if __name__ == "__main__":
