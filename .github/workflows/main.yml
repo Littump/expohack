@@ -51,6 +51,14 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/backend_project:latest
 
+      - name: Push python backend model file docker to docker hub
+        uses: docker/build-push-action@v4
+        with:
+          context: ./model
+          file: ./model/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/backend_model_project:latest
+
   deploy:
     name: Deploy image
     runs-on: ubuntu-latest

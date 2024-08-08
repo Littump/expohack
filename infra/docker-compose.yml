@@ -43,3 +43,9 @@ services:
       - ../frontend/dist:/usr/share/nginx/html/
     depends_on:
       - frontend
+  workers:
+    image: littump/model_project:latest
+    restart: always
+    env_file: ../backend/.env
+    depends_on:
+      - db
