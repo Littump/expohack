@@ -15,11 +15,12 @@ jobs:
 
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: 3.11
 
       - name: Install dependencies for Python
         run: |
           pip install -r backend/requirements.txt
+          pip install -r model/requirements.txt
 
   build_and_push_to_docker_hub:
     name: Build and push docker image to docker hub
@@ -72,9 +73,9 @@ jobs:
           password: ${{ secrets.PASSPHRASE }}
           script: |
             cd site
-            sudo docker compose pull
-            sudo docker compose down
-            sudo docker compose up -d
+            sudo docker-compose pull
+            sudo docker-compose down
+            sudo docker-compose up -d
             sudo docker exec site-backend-1 python manage.py makemigrations
             sudo docker exec site-backend-1 python manage.py migrate
 

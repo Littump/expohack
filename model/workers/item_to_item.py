@@ -1,8 +1,9 @@
-from database import Thing, Recommendation, get_session
-from utils.worker import Worker
-from storages import Storage
-from ml.item_to_item_model import PredictionModel
 from datetime import datetime
+
+from database import Recommendation, Thing, get_session
+from ml.item_to_item_model import PredictionModel
+from storages import Storage
+from utils.worker import Worker
 
 
 class ItemToItemWorker(Worker):

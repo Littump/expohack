@@ -1,13 +1,11 @@
-from drf_yasg.utils import swagger_auto_schema
-from rest_framework.decorators import action
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
-from rest_framework import status
+from api import filters, models, serializers
 from django_filters.rest_framework import DjangoFilterBackend
-
-
-from api import serializers, models, filters
+from drf_yasg.utils import swagger_auto_schema
 from ml.script import GenerateScript
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 
 
 class ClientViewSet(ModelViewSet):

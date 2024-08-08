@@ -1,7 +1,8 @@
-import requests
 import base64
-import uuid
 import json
+import uuid
+
+import requests
 from project import config
 
 

@@ -1,6 +1,6 @@
 from database import Thing, get_session
-from utils.worker import Worker
 from storages import Storage
+from utils.worker import Worker
 
 
 class StorageThingWorker(Worker):
