@@ -39,6 +39,12 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/www/backend/static/
       - media_value:/var/www/backend/media/
+  workers:
+    image: ../model/
+    restart: always
+    env_file: ../model/.env
+    depends_on:
+      - db
       # - ../frontend/dist:/usr/share/nginx/html/
     # depends_on:
     #   - frontend
