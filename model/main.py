@@ -11,5 +11,5 @@ if __name__ == "__main__":
     StorageThingWorker(60 * MINUTE).start()
     StorageHistoryWorker(60 * MINUTE).start()
     time.sleep(10)
-    ItemToItemWorker(15 * MINUTE).start()
-    PersonToPersonWorker(15 * MINUTE).start()
+    ItemToItemWorker(8 * 60 * MINUTE).start()
+    PersonToPersonWorker(60 * MINUTE).start()
