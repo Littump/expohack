@@ -1,0 +1,6 @@
+.searchInput span {
+  @apply border-gray-300 bg-gray-100 rounded-lg !important;
+}
+.searchInput input {
+  @apply bg-gray-100 !important;
+}

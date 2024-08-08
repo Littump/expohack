@@ -1,0 +1,3 @@
+.searchInput span {
+  @apply border-gray-300 rounded-lg !important;
+}

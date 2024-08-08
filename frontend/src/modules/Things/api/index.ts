@@ -1,0 +1,1 @@
+export { useGetThings } from "./useGetThings";

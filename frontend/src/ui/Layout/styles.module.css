@@ -1,0 +1,7 @@
+.content {
+  @apply mx-auto h-full w-full flex flex-col flex-grow;
+}
+
+.layout {
+  @apply w-[100vw] min-h-[100vh] flex flex-col;
+}

@@ -1,0 +1,7 @@
+.default span {
+  @apply bg-white rounded-full h-[54px] flex items-center justify-start px-[27px] !important;
+  @apply border-black hover:border-black;
+}
+.default input {
+  @apply text-[20px] font-normal bg-white !important;
+}

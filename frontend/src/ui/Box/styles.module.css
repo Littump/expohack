@@ -1,0 +1,3 @@
+.box {
+  @apply py-[35px] px-[24px] bg-white rounded-2xl !important;
+}

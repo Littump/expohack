@@ -1,0 +1,10 @@
+.default {
+  @apply bg-green-500 font-semibold rounded-full text-white h-[40px] px-[91px] hover:bg-orange transition flex justify-center items-center text-[20px] !important;
+}
+.main {
+  @apply bg-orange;
+}
+.default::before,
+::after {
+  display: none;
+}

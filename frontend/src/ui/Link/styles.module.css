@@ -1,0 +1,15 @@
+.link {
+  @apply text-[20px] flex gap-1 items-center font-[500] text-green-500 hover:text-orange no-underline hover:underline;
+}
+
+.link_bold {
+  font-weight: 700;
+}
+
+.link_active {
+  @apply text-orange underline;
+}
+
+.link_transition {
+  @apply transition;
+}

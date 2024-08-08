@@ -1,0 +1,35 @@
+.text_xl {
+  @apply text-[39px] leading-[44px] !important;
+}
+
+.text_l {
+  @apply text-[34px] leading-[37px] !important;
+}
+
+.text_m {
+  @apply text-[30px] leading-[34px] !important;
+}
+
+.text_s {
+  @apply text-[20px] leading-[24px] !important;
+}
+
+.text_xs {
+  @apply text-[18px] leading-[22px] !important;
+}
+
+.text_bold {
+  font-family: "Gilroy-Bold", sans-serif !important;
+  font-weight: 500;
+  @apply font-semibold;
+}
+
+.text_default {
+  font-family: "Gilroy-Light", sans-serif;
+  font-weight: 300;
+  @apply font-light;
+}
+
+.text {
+  @apply text-green-500;
+}
