@@ -80,14 +80,3 @@ class GigaChatAPI:
         prompt = self._build_prompt(main_product, additional_products)
         script = self._generate_answer(prompt)
         return script
-
-
-# # Пример использования:
-# giga_chat_api = GigaChatAPI()
-# main_product = {"Смартфон XYZ": "Высококачественный смартфон с отличной камерой и длительным временем работы."}
-# additional_products = {
-#     "Чехол для смартфона XYZ": "Надежный чехол, который защитит ваш смартфон от ударов и царапин.",
-#     "Зарядное устройство для XYZ": "Быстрое зарядное устройство, которое позволит вам заряжать смартфон за считанные минуты."
-# }
-# script = giga_chat_api.get_script(main_product, additional_products)
-# print(script)
