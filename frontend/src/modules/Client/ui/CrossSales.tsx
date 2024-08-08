@@ -5,7 +5,6 @@ import { ChangeEventHandler, useCallback, useState } from "react";
 import styles from "./styles.module.css";
 import { TextInput } from "@/ui/TextInput";
 import { Text } from "@/ui/Text";
-import { Modal } from "@/ui/Modal";
 
 export const CrossSales = () => {
   const [search, setSearch] = useState("");

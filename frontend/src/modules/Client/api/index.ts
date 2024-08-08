@@ -1,2 +1,3 @@
+export { useGetRecommendations } from "./useGetRecommendations";
 export { useGetClients } from "./useGetClients";
-export { useChangeFavourite } from "./useChangeFavourite";
+export { useGetHistory } from "./useGetHistory";

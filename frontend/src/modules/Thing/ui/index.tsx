@@ -2,15 +2,14 @@ import { Spin } from "@/ui/Spin";
 import { useGetRecommendation, useGetScript, useGetThing } from "../api";
 import { Box } from "@/ui/Box";
 import { useNavigate, useParams } from "react-router-dom";
-import { ClientItem, useChangeFavourite } from "@/modules/Clients";
 import { Text } from "@/ui/Text";
 import { Modal } from "@/ui/Modal";
+import { ThingItem } from "@/modules/Things";
 
 export const Thing = () => {
   const { id } = useParams();
   const { data, isPending } = useGetThing(id!);
   const { data: scriptData, isPending: scriptIsPending } = useGetScript(id!);
-  const { mutate } = useChangeFavourite();
   const { data: dataRecommendations } = useGetRecommendation(id!);
   const navigate = useNavigate();
   const scriptText = scriptData?.data.text;
@@ -43,16 +42,15 @@ export const Thing = () => {
         <Text variant="m" className="block font-light pb-[43px] !important">
           Рекомендации для товара на основе истории покупок
         </Text>
-        <div className="w-full flex justify-between pt-[19px] pb-[9px] px-[25px] text-gray-300">
+        <div className="w-full grid grid-cols-3 pt-[19px] pb-[9px] px-[25px] text-gray-300">
           <span>ID</span>
-          <span>ИЗБРАННОЕ</span>
+          <span>Компания</span>
+          <span>Товар</span>
         </div>
         {!dataRecommendations || isPending ? (
           <Spin />
         ) : (
-          dataRecommendations.data.map(({ id }) => (
-            <ClientItem mutate={mutate} key={id} id={id} />
-          ))
+          dataRecommendations.data.map((el) => <ThingItem key={id} {...el} />)
         )}
       </Box>
       <div className="flex gap-[20px] flex-col mt-[40px] items-start">

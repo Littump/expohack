@@ -5,4 +5,5 @@ declare module "*.jpeg";
 declare module "*.webp";
 declare module "*.tsv";
 declare module "*.csv";
+declare module "*.css";
 //чтобы typescript не ругался на импорт картинок

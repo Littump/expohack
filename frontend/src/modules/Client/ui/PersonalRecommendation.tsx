@@ -1,9 +1,12 @@
-import { ThingItem, useGetThings } from "@/modules/Things";
+import { useGetRecommendations } from "../api";
+import { ThingItem } from "@/modules/Things";
 import { Spin } from "@/ui/Spin";
 import { Text } from "@/ui/Text";
+import { useParams } from "react-router-dom";
 
 export const PersonalRecommendation = () => {
-  const { data, isPending } = useGetThings("");
+  const { id } = useParams();
+  const { data, isPending } = useGetRecommendations(id!);
 
   return (
     <div>

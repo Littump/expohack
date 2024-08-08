@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL } from "@/config/api.ts";
-import { IClient, IThing } from "../types/responses";
+import { IThing } from "../types/responses";
 
 class thingService {
   async getThing(id: string) {
@@ -12,7 +12,7 @@ class thingService {
   }
 
   async getRecommendation(id: string) {
-    return axios.get<IClient[]>(`${API_URL}clients/`, {
+    return axios.get<IThing[]>(`${API_URL}things/${id}/recommend/`, {
       headers: {
         Authorization: `Token ${localStorage.getItem("token")}`,
       },

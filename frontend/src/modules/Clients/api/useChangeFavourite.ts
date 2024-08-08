@@ -7,5 +7,6 @@ export const useChangeFavourite = () =>
     mutationFn: (id: string) => clientsService.changeFavourite(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["clients", true] });
+      queryClient.invalidateQueries({ queryKey: ["clients"] });
     },
   });
