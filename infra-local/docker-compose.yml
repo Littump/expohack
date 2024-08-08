@@ -40,7 +40,7 @@ services:
       - static_value:/var/www/backend/static/
       - media_value:/var/www/backend/media/
   workers:
-    image: ../model/
+    build: ../model/
     restart: always
     env_file: ../model/.env
     depends_on:
