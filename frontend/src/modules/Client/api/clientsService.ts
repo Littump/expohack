@@ -26,7 +26,7 @@ class clientsService {
   }
 
   async getRecommendations(id: string) {
-    return axios.get<IThing[]>(`${API_URL}clients/?id=${id}/recommendations/`, {
+    return axios.get<IThing[]>(`${API_URL}clients/${id}/recommendations/`, {
       headers: {
         Authorization: `Token ${localStorage.getItem("token")}`,
       },
