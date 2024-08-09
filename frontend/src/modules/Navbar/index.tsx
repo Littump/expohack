@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <div className="h-[73px] w-[100vw] bg-blue-100 flex justify-start items-center">
       <div className="w-full px-[30px] flex items-center justify-between">
-        <NavLink to="/">
+        <NavLink to="/clients/">
           <img src={logo} alt="expo" className="w-[152px] h-[52px]" />
         </NavLink>
         {token && <Button onClick={handleLeave}>Выйти</Button>}
