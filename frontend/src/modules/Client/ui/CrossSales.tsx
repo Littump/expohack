@@ -21,8 +21,12 @@ export const CrossSales = () => {
 
   return (
     <div>
-      <Text variant="l" className="mb-[43px] block">
+      <Text variant="l" className="mb-[13px] block">
         Кросс-продажи
+      </Text>
+      <Text variant="s" className="mb-[43px] block">
+        Выберите один из доступных товаров, который выбрал покупатель, и
+        перейдите по нему. Вы получите товары для кросс-продажи
       </Text>
       <TextInput
         value={search}
