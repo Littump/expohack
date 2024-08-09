@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Text } from "@/ui/Text";
 import { Modal } from "@/ui/Modal";
 import { ThingItem } from "@/modules/Things";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 export const Thing = () => {
   const [enabled, setIsEnabled] = useState(false);
