@@ -38,7 +38,7 @@ export const Modal = (props: IModalProps) => {
         open={isOpen}
         onClose={handleClose}
         contentClassName={cn(
-          "min-h-[300px] min-w-[400px] max-w-[1000px] text-green-500 flex flex-col gap-[20px] px-[40px] py-[40px] rounded-xl !important",
+          "min-h-[300px] md:min-w-[400px] max-w-[90vw] md:max-w-[1000px] text-green-500 flex flex-col gap-[20px] px-[40px] py-[40px] rounded-xl !important",
           modalClassName
         )}
         {...restProps}

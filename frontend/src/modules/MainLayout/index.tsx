@@ -23,7 +23,7 @@ export const MainNavbar = () => {
     },
   ];
   return (
-    <div className="w-full flex gap-[102px] py-[35px] px-[93px]">
+    <div className="w-full flex gap-[30px] justify-center md:justify-start md:flex-nowrap flex-wrap md:gap-[102px] py-[35px] px-[20px] md:px-[93px]">
       {links.map((el) => (
         <Link to={el.to} key={el.to} className="font-semibold">
           {el.text}
@@ -41,10 +41,10 @@ export const MainLayout = (props: ILayoutProps) => {
   }, []);
 
   return (
-    <Layout {...props} contentClassName="px-[30px]">
+    <Layout {...props} contentClassName="sm:px-[15px] md:px-[30px]">
       <div className="rounded-t-3xl  bg-blue-200 w-full mt-[65px]">
         <MainNavbar />
-        <div className="rounded-t-3xl min-h-[80vh] bg-blue-100 w-full px-[93px]  py-[44px]">
+        <div className="rounded-t-3xl min-h-[80vh] bg-blue-100 w-full xl:px-[93px] px-[5px] sm:px-[25px]  py-[44px]">
           {props.children}
         </div>
       </div>

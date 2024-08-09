@@ -1,5 +1,4 @@
 import logo from "@/assets/logo.svg";
-import { Button } from "@/ui/Button";
 import { useCallback } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -17,7 +16,11 @@ export const Navbar = () => {
         <NavLink to="/clients/">
           <img src={logo} alt="expo" className="w-[152px] h-[52px]" />
         </NavLink>
-        {token && <Button onClick={handleLeave}>Выйти</Button>}
+        {token && (
+          <button className="btn-default" onClick={handleLeave}>
+            Выйти
+          </button>
+        )}
       </div>
     </div>
   );

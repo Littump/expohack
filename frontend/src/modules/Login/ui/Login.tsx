@@ -58,11 +58,11 @@ export const Login = () => {
           backgroundImage: `url(${login_bg})`,
           backgroundSize: "auto 100%",
         }}
-        className="w-full pl-[140px] pt-[200px] min-h-max bg-scale backg bg-repeat-x"
+        className="w-full px-[15px] xl:block flex justify-center mx-auto xl:pl-[140px] xl:pr-0 pt-[200px] min-h-max bg-scale backg bg-repeat-x"
       >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-[30px] items-start max-w-[600px]"
+          className="flex flex-col w-full gap-[30px] items-center xl:items-start max-w-[600px]"
         >
           <Text variant="xl" isBold className="uppercase">
             Вход в аккаунт
@@ -82,7 +82,7 @@ export const Login = () => {
             value={values.password}
             onChange={handleChange}
           />
-          <div className="flex gap-4 items-center">
+          <div className="flex sm:flex-row flex-col w-full gap-4 items-center">
             <Button loading={isPending} type="submit">
               Войти
             </Button>

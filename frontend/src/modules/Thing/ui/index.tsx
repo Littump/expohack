@@ -26,7 +26,7 @@ export const Thing = () => {
   }, [setIsCopy]);
 
   return (
-    <div className="flex flex-col gap-[20px]">
+    <div className="flex flex-col gap-[20px]  text-center md:text-start ">
       <button className="flex gap-1 items-center" onClick={() => navigate(-1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export const Thing = () => {
           dataRecommendations.data.map((el) => <ThingItem key={id} {...el} />)
         )}
       </Box>
-      <div className="flex gap-[20px] flex-col mt-[40px] items-start">
+      <div className="flex gap-[20px] flex-col mt-[40px] items-center md:items-start">
         <Text variant="l" className="block">
           Персональная рекоммендация{" "}
         </Text>
@@ -77,10 +77,7 @@ export const Thing = () => {
               (scriptText ? scriptText : "Не удалось получить скрипт")}
           </Text>
           {scriptText && (
-            <button
-              onClick={handleCopyToBuffer}
-              className={`active:scale-90 w-52 items-center justify-center flex gap-2 hover:bg-gray-100 transition rounded-lg px-4 py-2 cursor-pointer`}
-            >
+            <button onClick={handleCopyToBuffer} className={`btn-default w-52`}>
               {isCopy ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

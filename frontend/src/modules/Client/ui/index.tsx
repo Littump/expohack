@@ -7,8 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 interface IClientProps extends PropsWithChildren {}
 
 const links: { to: string; text: string }[] = [
-  { to: "cross-sales", text: "Кросс-продажи" },
   { to: "personal-recommendation", text: "Персональные рекоммендации" },
+  { to: "cross-sales", text: "Кросс-продажи" },
   { to: "history", text: "История покупок" },
 ];
 
@@ -16,7 +16,7 @@ export const Client = ({ children }: IClientProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-[20px] min-h-max flex-grow h-full">
+    <div className="flex flex-col text-center sm:text-start gap-[20px] min-h-max flex-grow h-full">
       <button className="flex gap-1 items-center" onClick={() => navigate(-1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ export const Client = ({ children }: IClientProps) => {
         № {id}
       </Text>
       <Box className="">
-        <div className="w-full flex gap-[102px] pb-[10px]">
+        <div className="w-full flex lg:gap-[102px] gap-[20px] justify-center sm:justify-start lg:flex-nowrap flex-wrap pb-[10px]">
           {links.map((el) => (
             <Link to={`/clients/${id}/${el.to}`} end key={el.to}>
               {el.text}
