@@ -19,11 +19,11 @@ export const Thing = () => {
   const navigate = useNavigate();
   const scriptText = scriptData?.data.text;
 
-  const handleCopyToBuffer = useCallback(() => {
+  const handleCopyToBuffer = () => {
     setIsCopy(true);
     navigator.clipboard.writeText(scriptText ?? "");
     setTimeout(() => setIsCopy(false), 2000);
-  }, [setIsCopy]);
+  };
 
   return (
     <div className="flex flex-col gap-[20px]  text-center md:text-start ">
