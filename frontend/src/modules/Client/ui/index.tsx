@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 interface IClientProps extends PropsWithChildren {}
 
 const links: { to: string; text: string }[] = [
-  { to: "personal-recommendation", text: "Персональные рекоммендации" },
+  { to: "personal-recommendation", text: "Персональные рекомендации" },
   { to: "cross-sales", text: "Кросс-продажи" },
   { to: "history", text: "История покупок" },
 ];

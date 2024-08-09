@@ -64,7 +64,7 @@ export const Thing = () => {
       </Box>
       <div className="flex gap-[20px] flex-col mt-[40px] items-center md:items-start">
         <Text variant="l" className="block">
-          Персональная рекоммендация{" "}
+          Персональная рекомендация{" "}
         </Text>
         <Modal
           onTransitionEnter={() => setIsEnabled(true)}
