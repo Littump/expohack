@@ -1,1 +1,1 @@
-export const API_URL = "https://expobank.tech/api/";
+export const API_URL = "https://51.250.40.186/api/";
