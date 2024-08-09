@@ -14,7 +14,9 @@ export const LoginAbout = memo(({ className }: ILoginAbout) => {
   ];
 
   return (
-    <div className={classNames(className, "flex flex-col gap-[67px]")}>
+    <div
+      className={classNames(className, " flex-col gap-[67px] hidden xl:flex")}
+    >
       <Text variant="xl" className="uppercase ">
         Система управления клиентскими базами
       </Text>

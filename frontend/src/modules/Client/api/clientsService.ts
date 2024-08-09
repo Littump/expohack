@@ -18,7 +18,7 @@ class clientsService {
   }
 
   async getHistory(id: string) {
-    return axios.get<IThing[]>(`${API_URL}clients/?id=${id}/history/`, {
+    return axios.get<IThing[]>(`${API_URL}clients/${id}/history/`, {
       headers: {
         Authorization: `Token ${localStorage.getItem("token")}`,
       },

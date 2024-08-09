@@ -50,18 +50,18 @@ export const Registration = () => {
   }
 
   return (
-    <div className="flex h-full flex-grow">
+    <div className="flex h-full flex-grow ">
       <LoginAbout className="w-[665px] mt-[135px] px-[50px] flex-shrink-0 min-h-max" />
       <div
         style={{
           backgroundImage: `url(${login_bg})`,
           backgroundSize: "auto 100%",
         }}
-        className="w-full pl-[140px] pt-[200px] min-h-max bg-scale backg bg-repeat-x"
+        className="w-full px-[15px] xl:block flex justify-center mx-auto xl:pl-[140px] xl:pr-0 pt-[200px] min-h-max bg-scale backg bg-repeat-x"
       >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-[30px] items-start max-w-[600px]"
+          className="flex flex-col w-full gap-[30px] items-center xl:items-start max-w-[600px]"
         >
           <Text variant="xl" isBold className="uppercase">
             Регистрация
@@ -81,7 +81,7 @@ export const Registration = () => {
             value={values.password}
             onChange={handleChange}
           />
-          <div className="flex gap-4 items-center">
+          <div className="flex sm:flex-row flex-col w-full gap-4 items-center">
             <Button loading={isPending} type="submit">
               Создать аккаунт
             </Button>
