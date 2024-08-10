@@ -65,7 +65,12 @@ class ThingViewSet(ModelViewSet):
     def script(self, request, pk):
         this_thing: models.Thing = self.get_object()
         main_product = {this_thing.name: this_thing.description}
-        additional_products = {thing.name: thing.description for thing in models.Thing.objects.all()}
+
+        recommendations = this_thing.thing_recommendation.all()
+        things = recommendations.values_list('thing_recommendation', flat=True)
+        queryset = models.Thing.objects.filter(id__in=things)
+
+        additional_products = {thing.name: thing.description for thing in queryset}
         additional_products.pop(this_thing.name, None)
         text = self.script_reducer.get_script(main_product, additional_products)
         serializer = serializers.ScriptSerializer(data={'text': text})
