@@ -23,6 +23,9 @@ class Thing(models.Model):
     description = models.CharField(max_length=1024, blank=True)
     last_update = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ["company", "name"]
+
 
 class HistoryBuy(models.Model):
     thing = models.ForeignKey(Thing, on_delete=models.CASCADE)
